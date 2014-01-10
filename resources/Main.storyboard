@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="d89-43-Mjn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="M29-nW-Dy0">
+            <objects>
+                <tabBarController storyboardIdentifier="Main" definesPresentationContext="YES" id="d89-43-Mjn" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="sIQ-WK-CYA">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5MI-Gg-oI1" kind="relationship" relationship="viewControllers" id="c0r-ab-HZ4"/>
+                        <segue destination="THO-bq-tRc" kind="relationship" relationship="viewControllers" id="MFI-4L-XCH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlu-Ks-UWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="372"/>
+        </scene>
+        <!--Players View Controller - Players-->
+        <scene sceneID="uws-ZZ-Zir">
+            <objects>
+                <tableViewController id="aFB-CA-cmK" customClass="PlayersViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gEr-yF-MZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="55" id="Acj-MT-LGE" customClass="PlayerCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Acj-MT-LGE" id="6i5-cJ-2hG">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oEh-6m-IZD">
+                                            <rect key="frame" x="12" y="3" width="190" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="600" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wXS-fU-eW6">
+                                            <rect key="frame" x="12" y="27" width="190" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pjG-KJ-ca3">
+                                            <rect key="frame" x="172" y="13" width="81" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameLabel" destination="wXS-fU-eW6" id="7Zd-4R-ojM"/>
+                                    <outlet property="nameLabel" destination="oEh-6m-IZD" id="N5M-nm-xUU"/>
+                                    <outlet property="ratingImageView" destination="pjG-KJ-ca3" id="mnt-1a-U7t"/>
+                                    <segue destination="UIL-KA-u9R" kind="modal" identifier="EditPlayer" id="c8D-yE-GYq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aFB-CA-cmK" id="s59-e7-CO8"/>
+                            <outlet property="delegate" destination="aFB-CA-cmK" id="2ek-WR-gnW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Players" id="1iW-Kz-UWE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aqT-jC-wOk">
+                            <connections>
+                                <segue destination="UIL-KA-u9R" kind="modal" identifier="AddPlayer" modalTransitionStyle="crossDissolve" id="Z2o-BD-2BZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rzi-qt-aX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201" y="-135"/>
+        </scene>
+        <!--Player Details View Controller - Add Player-->
+        <scene sceneID="wcN-CQ-2N4">
+            <objects>
+                <tableViewController id="e6t-qg-xCS" customClass="PlayerDetailsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="D3h-Y0-hZz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Player Name" id="GBh-13-w42">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mTL-hC-6UV">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mTL-hC-6UV" id="Dta-Dn-ZEk">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" id="MZm-Yw-6Zx">
+                                                    <rect key="frame" x="7" y="7" width="306" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="9Jz-Gn-4bq">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bj3-yH-QnD" detailTextLabel="Vug-g0-PSA" style="IBUITableViewCellStyleValue1" id="rPd-vg-L6t">
+                                        <rect key="frame" x="0.0" y="183" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rPd-vg-L6t" id="1vV-go-2fI">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="left" text="Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bj3-yH-QnD">
+                                                    <rect key="frame" x="15" y="11" width="46" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="300" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vug-g0-PSA">
+                                                    <rect key="frame" x="241" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.063773192972998452" green="0.075441333670391478" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Id3-DF-a7r" kind="push" identifier="PickGame" id="S77-Dc-wfB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Player" id="i8R-uY-6Kk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vlA-rg-dWX">
+                            <connections>
+                                <action selector="cancel:" destination="e6t-qg-xCS" id="Zy6-1v-V8H"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Hcu-x2-AtB">
+                            <connections>
+                                <action selector="done:" destination="e6t-qg-xCS" id="Pz0-gM-QUP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailLabel" destination="Vug-g0-PSA" id="ceT-lm-U7B"/>
+                        <outlet property="nameTextField" destination="MZm-Yw-6Zx" id="QIm-XC-d5a"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEz-67-NgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="683"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2g2-qt-06e">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="UIL-KA-u9R" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Hw8-Uo-eZ4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NAh-qF-gHA">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e6t-qg-xCS" kind="relationship" relationship="rootViewController" id="nLf-Kc-7ns"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGx-FC-9Nn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="683"/>
+        </scene>
+        <!--Game Picker View Controller - Pick Game-->
+        <scene sceneID="ggl-Uv-cue">
+            <objects>
+                <tableViewController id="Id3-DF-a7r" customClass="GamePickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4Cx-G8-3bf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" textLabel="Avy-fN-rX3" style="IBUITableViewCellStyleDefault" id="5cs-cp-VXG">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5cs-cp-VXG" id="Eek-pq-3bh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Avy-fN-rX3">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Id3-DF-a7r" id="hqw-tg-sr9"/>
+                            <outlet property="delegate" destination="Id3-DF-a7r" id="XTm-yp-JFF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pick Game" id="VH9-9d-d0m"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cc2-JW-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="1330"/>
+        </scene>
+        <!--View Controller - Gestures-->
+        <scene sceneID="kY5-Tf-jZw">
+            <objects>
+                <viewController id="THO-bq-tRc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mIp-TU-qge">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Tab" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G9n-A7-bmL">
+                                <rect key="frame" x="139" y="205" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Gestures" image="Gestures.png" id="WKG-VK-phg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t2T-Zd-b4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="663"/>
+        </scene>
+        <!--Navigation Controller - Players-->
+        <scene sceneID="Q0C-hZ-pMb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5MI-Gg-oI1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Players" image="Players.png" id="Y7g-4l-uRD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dty-l0-PUL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aFB-CA-cmK" kind="relationship" relationship="rootViewController" id="PoJ-RM-MdH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ys8-4G-80u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="625" y="-99"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Gestures.png" width="30" height="30"/>
+        <image name="Players.png" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="c8D-yE-GYq"/>
+    </inferredMetricsTieBreakers>
+</document>
